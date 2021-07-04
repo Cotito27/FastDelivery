@@ -1,0 +1,136 @@
+<div class="form-register">
+  <a href="/<%= section.split('/')[0] %>/reporte" class="btn-back-history">
+    <i class="fas fa-arrow-left"></i> Ver Reporte
+  </a>
+  <div class="title-form"><%= data ? 'Actualización' : 'Registro' %> de Productos</div>
+  <div class="codigo__item"><%= data ? data.codigo : '' %></div>
+  <form action="#" id="<%= data ? 'form__edit' : 'form__register' %>">
+    <div class="form-details">
+      <div class="input-box">
+        <span class="details">Nombre</span>
+        <input type="text" name="nombre" value="<%= data ? data.nombre : '' %>" placeholder="Ingrese Nombre" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Descripción</span>
+        <input type="text" name="descripcion" value="<%= data ? data.descripcion : '' %>" placeholder="Ingrese Descripción" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Establecimiento</span>
+        <select id="sites-product" name="cod_establecimiento">
+          <% establecimientos.forEach((item) => { %>
+            <% if(data) { %>
+              <% if(data.establecimiento == item.nombre) { %>
+                <option value="<%= item.codigo %>" selected><%= item.nombre %></option>
+              <% } else { %>
+                <option value="<%= item.codigo %>"><%= item.nombre %></option>
+              <% } %>
+            <% } else { %>
+              <option value="<%= item.codigo %>"><%= item.nombre %></option>
+            <% } %>
+          <% }) %>
+        </select>
+      </div>
+      <div class="input-box">
+        <span class="details">Categoría</span>
+        <select id="categories-product" name="cod_categoria">
+          <% categorias.forEach((item) => { %>
+            <% if(data) { %>
+              <% if(data.categoria == item.nombre) { %>
+                <option value="<%= item.codigo %>" selected><%= item.nombre %></option>
+              <% } else { %>
+                <option value="<%= item.codigo %>"><%= item.nombre %></option>
+              <% } %>
+            <% } else { %>
+              <option value="<%= item.codigo %>"><%= item.nombre %></option>
+            <% } %>
+          <% }) %>
+        </select>
+      </div>
+      <div class="input-box">
+        <span class="details">Precio</span>
+        <input type="number" name="precio" value="<%= data ? data.precio : '' %>" placeholder="Ingrese precio" min="0" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Stock</span>
+        <input type="number" name="stock" value="<%= data ? data.stock : '' %>" placeholder="Ingrese stock" min="0" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Unidad de Medida</span>
+        <input type="text" name="unidad_med" value="<%= data ? data.unidad_med : '' %>" placeholder="Ingrese unidad de medida" min="0" required />
+      </div>
+      <div class="input-box w-100">
+        <span class="upload-guide">Elija forma de subir la imagen.</span>
+        <input type="radio" name="gender" class="upload-radio upload-file" id="dot-1" checked/>
+        <input type="radio" name="gender" class="upload-radio upload-link" id="dot-2" />
+        <div class="category select-type-upload">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Subir por archivo</span>
+          </label>
+          <input
+            type="file"
+            id="fileForm"
+            class="d-none"
+            accept="image/*"
+            name="archivo"
+          />
+          <label class="file__select inputUpFile" for="fileForm" name="imagen"
+            >Elija imagen.</label
+          >
+          <label for="dot-2" id="link__select">
+            <span class="dot two"></span>
+            <span class="gender">Subir por link</span>
+          </label>
+          <input
+            type="text"
+            id="linkForm"
+            placeholder="Ingrese enlace de imagen"
+            class="form-control inputUpLink"
+            disabled
+          />
+        </div>
+      </div>
+
+      <div class="input-box w-100">
+        <div class="col">
+          <div class="preview__img">
+            <div class="title__preview__img">Previsualización de Imagen:</div>
+            <% data ? data.imagen == "null" || data.imagen == "" ? data.imagen = null : data.imagen : '' %>
+            <img
+              class="img-fluid img__view__preview"
+              src="<%= data ? data.imagen ? data.imagen : '/img/placeholder-image.png' : '/img/placeholder-image.png' %>"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <!-- <div class="input-box">
+        <span class="details">Stock</span>
+        <input type="number" placeholder="Ingrese stock" min="0" required>
+      </div> -->
+    </div>
+    <!-- <div class="gender-details">
+      <input type="radio" name="gender" id="dot-1" />
+      <input type="radio" name="gender" id="dot-2" />
+      <input type="radio" name="gender" id="dot-3" />
+      <span class="gender-title">Gender</span>
+      <div class="category">
+        <label for="dot-1">
+          <span class="dot one"></span>
+          <span class="gender">Male</span>
+        </label>
+        <label for="dot-2">
+          <span class="dot two"></span>
+          <span class="gender">Female</span>
+        </label>
+        <label for="dot-3">
+          <span class="dot three"></span>
+          <span class="gender">Prefer not to say</span>
+        </label>
+      </div>
+    </div> -->
+    <div class="button">
+      <input type="submit" class="<%= edit ? 'btn-update' : 'btn-save' %>" value="<%= edit ? 'Editar' : 'Guardar' %>" />
+    </div>
+  </form>
+</div>

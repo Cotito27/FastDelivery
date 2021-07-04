@@ -1,0 +1,88 @@
+<nav class="navbar is-transparent animate__animated animate__fadeIn">
+  <div class="left">
+    <div class="menu-bars">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/img/logo6.png" alt="Fast Delivery" title="Fast Delivery">
+      </a>
+    </div>
+  </div>
+  <div class="right">
+    <div class="btn-user">
+      <div class="icon-image">
+        <img src="<%= user.imagen || '/img/usuario.png' %>" alt="">
+      </div>
+      <div class="nom-user" title="<%= user.name %>">
+        <%= user.name %>
+      </div>
+      <div class="icon-right">
+        <i class="fas fa-caret-down"></i>
+      </div>
+    </div>
+    <div class="panel-user">
+      <div class="panel-body">
+        <div class="img-user">
+          <img src="<%= user.imagen || '/img/usuario.png' %>" alt="">
+        </div>
+        <div class="nom-user">
+          <%= user.name %>
+        </div>
+        <div class="mail-user">
+          <%= user.email %>
+        </div>
+        <label class="change-foto" for="change_foto">
+          <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+        </label>
+      </div>
+      <div class="panel-footer">
+        <a href="/logout" class="btn-logout">
+          Cerrar Sesión
+        </a>
+      </div>
+      <form id="form_foto">
+        <input type="file" class="d-none" name="archivo" id="change_foto" accept="image/*" />
+      </form>
+    </div>
+  </div>
+  <div class="block-preview-foto d-none"></div>
+  <div
+      class="preview-img-foto d-none"
+    >
+      <div class="card-header cardPreviewFoto">
+        <div class="close-preview">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </div>
+        <label for="change_foto"
+          class="btn btn-outline-dark btnReloadDownload"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path
+              fill="currentColor"
+              d="M19.77 11.73c0 1.64-.5 2.95-1.48 3.89-1.38 1.32-3.26 1.41-3.75 1.41H9.01v-2.1h5.46c.05 0 1.47.04 2.38-.84.55-.53.82-1.32.82-2.37 0-1.27-.33-2.23-.99-2.84-.98-.92-2.43-.85-2.44-.85h-4.23v3.1L4 7.07 10.01 3v2.93h4.16c.03 0 2.29-.13 3.95 1.42 1.09 1.03 1.65 2.5 1.65 4.38z"
+            ></path>
+          </svg>
+          Cargar
+        </label>
+      </div>
+      <div
+        class="card-body bodyPreviewImg"
+      >
+        <img
+          src="https://www.gstatic.com/meet/google_meet_horizontal_wordmark_2020q4_1x_icon_124_40_2373e79660dabbf194273d27aa7ee1f5.png"
+          class="imgPreview"
+        />
+      </div>
+      <div class="card-footer footerPreviewImg">
+				<div class="btn btn-success btnChangeFoto">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"><path fill="currentColor" d="M9.9 21.25l-6.7-6.7-2.2 2.2 8.9 8.9L29 6.55l-2.2-2.2-16.9 16.9z"></path></svg>
+				</div>
+			</div>
+    </div>
+</nav>

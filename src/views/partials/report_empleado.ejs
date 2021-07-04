@@ -1,0 +1,76 @@
+<div class="form-table">
+  
+  <div class="title-form">Reporte de Empleados</div>
+  <div class="form-search form-details">
+    <div class="input-box search-box">
+      <span class="details">Buscar</span>
+      <input type="text" class="input-search-table" placeholder="Busque algun empleado" required>
+    </div>
+  </div>
+  <div class="buttons-actions-table">
+    <div class="btn-actions btn-edit">
+      Editar
+    </div>
+    <a href="/<%= section %>" class="btn-actions btn-refresh">
+      Actualizar
+    </a>
+    <a href="/<%= section.split('/')[0] %>/registro" class="btn-actions btn-new-save">
+      Registrar Nuevo
+    </a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped tb-workers">
+      <thead>
+        <tr>
+          <th scope="col">
+            SEL.
+          </th>
+          <th scope="col">Código</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Domicilio</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Contraseña</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Dni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((item, i) => { %>
+          <tr>
+            <td data-title="Seleccionar">
+              <input class="inp-cbx" id="cbx<%= i + 2 %>" type="checkbox" style="display: none">
+              <label class="cbx" for="cbx<%= i + 2 %>"><span>
+                <svg width="12px" height="10px" viewBox="0 0 12 10">
+                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </svg></span><span></span></label>
+            </td>
+            <td data-title="Código" data-codigo-emp="<%= item.codigo %>" class="codigo-item" scope="row"><%= item.codigo %></td>
+            <td data-title="Imagen">
+              <div class="image-row-table">
+                <img src="<%= item.imagen || '/img/usuario.png' %>" alt="">
+              </div>
+            </td>
+            <td data-title="Nombres"><%= item.nombres %></td>
+            <td data-title="Apellidos"><%= item.apellidos %></td>
+            <td data-title="Cargo"><%= item.cargo %></td>
+            <td data-title="Estado"><%= item.estado %></td>
+            <td data-title="Domicilio"><%= item.domicilio %></td>
+            <td data-title="Telefono"><%= item.telefono %></td>
+            <td data-title="Usuario"><%= item.usuario %></td>
+            <td data-title="Contraseña"><input type="password" value="<%= item.pass %>" disabled></td>
+            <td data-title="Correo"><%= item.correo %></td>
+            <td data-title="Dni"><%= item.dni %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination-table">
+    <div id="index_native" class="actions-paginator-table"></div>
+  </div>
+</div>

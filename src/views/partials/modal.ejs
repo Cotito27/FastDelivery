@@ -1,0 +1,164 @@
+<div class="modals-preview">
+  <div class="modal modal-clientes">
+    
+    <div class="modal-block-content">
+      
+    </div>
+    <div class="modal-body">
+      <!-- <div class="modal-title">
+        Búsqueda de Clientes
+      </div> -->
+      <div class="btn-close-modal">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="modal-content">
+        <div class="form-table">
+      
+          <div class="title-form">Búsqueda de Clientes</div>
+          <div class="form-search form-details">
+            <div class="input-box search-box">
+              <span class="details">Buscar</span>
+              <input type="text" class="input-search-table" placeholder="Busque algun cliente" required>
+            </div>
+          </div>
+          <div class="buttons-actions-table">
+            <!-- <a href="/<%= section.split('/')[0] %>/registro" class="btn-actions btn-new-save">
+              Registrar Nuevo
+            </a> -->
+            <div class="btn-form-boleta btn-primary btn-select-cliente">
+              <i class="fas fa-check-circle"></i> Enviar Datos
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped tb-clients">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    SEL.
+                  </th>
+                  <th scope="col">Código</th>
+                  <th scope="col">Imagen</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellido Paterno</th>
+                  <th scope="col">Apellido Materno</th>
+                  <th scope="col">Dni</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Correo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% clientes.forEach((item, i) => { %>
+                  <tr>
+                    <td data-title="Seleccionar">
+                      <input class="inp-cbx" id="cbx<%= i + 3 %>" type="checkbox" style="display: none">
+                      <label class="cbx" for="cbx<%= i + 3 %>"><span>
+                        <svg width="12px" height="10px" viewBox="0 0 12 10">
+                          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg></span><span></span></label>
+                    </td>
+                    <td data-title="Código" class="codigo-item" scope="row"><%= item.codigo %></td>
+                    <td data-title="Imagen">
+                      <div class="image-row-table">
+                        <img src="<%= item.imagen || '/img/usuario.png' %>" alt="">
+                      </div>
+                    </td>
+                    <td data-title="Nombres"><%= item.nombres %></td>
+                    <td data-title="Apellido Paterno"><%= item.apellido_paterno %></td>
+                    <td data-title="Apellido Materno"><%= item.apellido_materno %></td>
+                    <td data-title="Dni"><%= item.dni %></td>
+                    <td data-title="Dirección"><%= item.direccion %></td>
+                    <td data-title="Telefono"><%= item.telefono %></td>
+                    <td data-title="Estado"><%= item.estado %></td>
+                    <td data-title="Correo"><%= item.correo %></td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination-table">
+            <div id="index_native" class="actions-paginator-table"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <div class="modal modal-productos">
+    <div class="modal-block-content"></div>
+      <div class="modal-body">
+        <div class="btn-close-modal">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-content">
+          <div class="form-table">
+  
+            <div class="title-form">Búsqueda de Productos</div>
+            <div class="form-search form-details">
+              <div class="input-box search-box">
+                <span class="details">Buscar</span>
+                <input type="text" class="input-search-table" placeholder="Busque algun producto" required>
+              </div>
+            </div>
+            <div class="buttons-actions-table">
+              <div class="btn-form-boleta btn-primary btn-select-producto">
+                <i class="fas fa-check-circle"></i> Enviar Datos
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped tb-products">
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      SEL.
+                    </th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Establecimiento</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Unidad de Medida</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% productos.forEach((item, i) => { %>
+                    <tr>
+                      <td data-title="Seleccionar">
+                        <input class="inp-cbx" id="cbx2<%= i + 3 %>" type="checkbox" style="display: none">
+                        <label class="cbx" for="cbx2<%= i + 3 %>"><span>
+                          <svg width="12px" height="10px" viewBox="0 0 12 10">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                          </svg></span><span></span></label>
+                      </td>
+                      <td data-title="Código" class="codigo-item" scope="row"><%= item.codigo %></td>
+                      <td data-title="Imagen">
+                        <div class="image-row-table">
+                          <% item.imagen == "null" || item.imagen == "" ? item.imagen = null : item.imagen %>
+                          <img src="<%= item.imagen || '/img/placeholder-image.png' %>" alt="">
+                        </div>
+                      </td>
+                      <td data-title="Nombre"><%= item.nombre %></td>
+                      <td data-title="Descripcion"><%= item.descripcion %></td>
+                      <td data-title="Establecimiento"><%= item.establecimiento %></td>
+                      <td data-title="Categoria"><%= item.categoria %></td>
+                      <td data-title="Precio"><%= item.precio %></td>
+                      <td data-title="Stock"><%= item.stock %></td>
+                      
+                      <td data-title="Unidad de Medida"><%= item.unidad_med %></td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+            <div class="pagination-table">
+              <div id="index_native" class="actions-paginator-table"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

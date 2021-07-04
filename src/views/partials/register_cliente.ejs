@@ -1,0 +1,103 @@
+<div class="form-register">
+  <a href="/<%= section.split('/')[0] %>/reporte" class="btn-back-history">
+    <i class="fas fa-arrow-left"></i> Ver Reporte
+  </a>
+  <div class="title-form"><%= data ? 'Actualización' : 'Registro' %> de Clientes</div>
+  <div class="codigo__item"><%= data ? data.codigo : '' %></div>
+  <form action="#" id="<%= data ? 'form__edit' : 'form__register' %>">
+    <div class="form-details">
+      <div class="input-box">
+        <span class="details">Nombres</span>
+        <input type="text" name="nombres" value="<%= data ? data.nombres : '' %>" placeholder="Ingrese Nombres" <%= data ? 'disabled' : 'required' %> />
+      </div>
+      <div class="input-box">
+        <span class="details">Apellido Paterno</span>
+        <input type="text" name="apellido_paterno" value="<%= data ? data.apellido_paterno : '' %>" placeholder="Ingrese Apellido Paterno" <%= data ? 'disabled' : 'required' %> />
+      </div>
+      <div class="input-box">
+        <span class="details">Apellido Materno</span>
+        <input type="text" name="apellido_materno" value="<%= data ? data.apellido_materno : '' %>" placeholder="Ingrese Apellido Materno" <%= data ? 'disabled' : 'required' %> />
+      </div>
+      <div class="input-box">
+        <span class="details">Dni</span>
+        <input type="text" name="dni" value="<%= data ? data.dni : '' %>" placeholder="Ingrese Dni" <%= data ? 'disabled' : 'required' %> />
+      </div>
+      <div class="input-box">
+        <span class="details">Dirección</span>
+        <input type="text" name="direccion" value="<%= data ? data.direccion : '' %>" placeholder="Ingrese Dni" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Telefono</span>
+        <input type="text" name="telefono" value="<%= data ? data.telefono : '' %>" placeholder="Ingrese Telefono" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Estado</span>
+        <select id="estado-emp" name="cod_estado">
+          <% estados.forEach((item) => { %>
+            <% if(data) { %>
+              <% if(data.estado == item.nombre) { %>
+                <option value="<%= item.codigo %>" selected><%= item.nombre %></option>
+              <% } else { %>
+                <option value="<%= item.codigo %>"><%= item.nombre %></option>
+              <% } %>
+            <% } else { %>
+              <option value="<%= item.codigo %>"><%= item.nombre %></option>
+            <% } %>
+          <% }) %>
+        </select>
+      </div>
+      <div class="input-box">
+        <span class="details">Correo</span>
+        <input type="text" name="correo" value="<%= data ? data.correo : '' %>" placeholder="Ingrese Correo" required />
+      </div>
+      <div class="input-box w-100">
+        <span class="upload-guide">Elija forma de subir la imagen.</span>
+        <input type="radio" name="gender" class="upload-radio upload-file" id="dot-1" checked/>
+        <input type="radio" name="gender" class="upload-radio upload-link" id="dot-2" />
+        <div class="category select-type-upload">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Subir por archivo</span>
+          </label>
+          <input
+            type="file"
+            id="fileForm"
+            class="d-none"
+            accept="image/*"
+            name="archivo"
+          />
+          <label class="file__select inputUpFile" for="fileForm" name="imagen"
+            >Elija imagen.</label
+          >
+          <label for="dot-2" id="link__select">
+            <span class="dot two"></span>
+            <span class="gender">Subir por link</span>
+          </label>
+          <input
+            type="text"
+            id="linkForm"
+            placeholder="Ingrese enlace de imagen"
+            class="form-control inputUpLink"
+            disabled
+          />
+        </div>
+      </div>
+
+      <div class="input-box w-100">
+        <div class="col">
+          <div class="preview__img">
+            <div class="title__preview__img">Previsualización de Imagen:</div>
+            <img
+              class="img-fluid img__view__preview"
+              src="<%= data ? data.imagen ? data.imagen : '/img/usuario.png' : '/img/placeholder-image.png' %>"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <input type="submit" class="<%= edit ? 'btn-update' : 'btn-save' %>" value="<%= edit ? 'Editar' : 'Guardar' %>" />
+    </div>
+  </form>
+</div>

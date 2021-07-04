@@ -1,0 +1,243 @@
+<div class="panel-boleta">
+  <div class="form-boleta">
+    <div class="left">
+      <div class="header">
+        <div class="image-logo">
+          <img src="/img/logo6.png" alt="">
+        </div>
+        <div class="name-site">
+          FastDelivery
+        </div>
+        <div class="email-site">
+          fastdelivery@gmail.com
+        </div>
+      </div>
+      <div class="body">
+        <div class="image-cliente">
+          <div class="indicator">
+            Imagen:
+          </div>
+          <div class="content">
+            <img src="/img/usuario.png" alt="">
+          </div>
+        </div>
+        <div class="name-cliente field-form">
+          <div class="indicator">
+            Nombres:
+          </div>
+          <div class="content">
+            test
+          </div>
+        </div>
+        <div class="cod-cliente field-form">
+          <div class="indicator">
+            Código:
+          </div>
+          <div class="content">
+            1312
+          </div>
+        </div>
+        <div class="dni-cliente field-form">
+          <div class="indicator">
+            Dni:
+          </div>
+          <div class="content">
+            12414512512
+          </div>
+        </div>
+        <div class="direccion-cliente field-form">
+          <div class="indicator">
+            Dirección:
+          </div>
+          <div class="content">
+            Chincha Alta
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="right">
+      <div class="header">
+        <div class="boleta-info">
+          <div class="indicator-boleta">
+            Cotización de Precios
+          </div>
+          <div class="context-number">
+            <div class="codigo-empleado">
+              C.V. <%= user.codigo %> 
+            </div>
+            <div class="codigo-boleta">
+              <%= maxCodeBoleta  %>
+            </div>
+          </div>
+        </div>
+        <% let n =  new Date();
+        //Año
+        let y = n.getFullYear();
+        //Mes
+        let m = n.getMonth() + 1;
+        //Día
+        let d = n.getDate(); 
+        if(m < 10) {
+          m = "0" + m;
+        }
+        if(d < 10) {
+          d = "0" + d;
+        }
+        %>
+        <div class="date-time field-form">
+          <div class="indicator">
+            Fecha:
+          </div>
+          <div class="content">
+            <input type="date" value="<%= y + '-' + m + '-' + d %>" disabled>
+          </div>
+        </div>
+        <div class="select-cliente field-form">
+          <div class="indicator">
+            Cliente:
+          </div>
+          <div class="content">
+            <i class="fas fa-wallet"></i>
+          </div>
+        </div>
+        <div class="validate field-form">
+          <div class="indicator">
+            Validez:
+          </div>
+          <div class="content">
+            <input type="date">
+          </div>
+        </div>
+        <div class="moneda field-form">
+          <div class="indicator">
+            Moneda:
+          </div>
+          <div class="content">
+            Soles
+          </div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="tel-cliente field-form">
+          <div class="indicator">
+            Telefono:
+          </div>
+          <div class="cotent">
+            19241925812
+          </div>
+        </div>
+        <div class="email-cliente field-form">
+          <div class="indicator">
+            Correo:
+          </div>
+          <div class="content">
+            test@test.com
+          </div>
+        </div>
+        <div class="name-empleado field-form">
+          <div class="indicator">
+            Vendedor:
+          </div>
+          <div class="content">
+            Jesus Cotito
+          </div>
+        </div>
+        <div class="tel-empleado field-form">
+          <div class="indicator">
+            Telefono: 
+          </div>
+          <div class="content">
+            912481234
+          </div>
+        </div>
+        <div class="email-empleado field-form">
+          <div class="indicator">
+            Correo:
+          </div>
+          <div class="content">
+            jesus@gmail.com
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btns-actions-boleta">
+      <div class="btn-form-boleta btn-search-product">
+        <i class="fas fa-search" aria-hidden="true"></i> Buscar Producto
+      </div>
+      <div class="btn-form-boleta btn-print">
+        <i class="fas fa-print" aria-hidden="true"></i> Imprimir
+      </div>
+      <div class="btn-form-boleta btn-pdf">
+        <i class="fas far fa-file-pdf" aria-hidden="true"></i> Generar pdf
+      </div>
+      <div class="btn-form-boleta btn-save-cotizacion">
+        <i class="fas fa-cash-register" aria-hidden="true"></i> Registrar cotización
+      </div>
+      <div class="btn-form-boleta btn-new-cotizacion">
+        <i class="fas fa-cash-register" aria-hidden="true"></i> Nueva cotización
+      </div>
+    </div>
+  </div>
+  <div class="form-table-boleta">
+    <div class="table-responsive">
+      <table class="table tb-products">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">
+              SEL.
+            </th>
+            <th scope="col">Código</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Establecimiento</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Unidad de Medida</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td data-title="Item">1</td>
+              <td data-title="Seleccionar">
+                <input class="inp-cbx" id="cbx" type="checkbox" style="display: none">
+                <label class="cbx" for="cbx"><span>
+                  <svg width="12px" height="10px" viewBox="0 0 12 10">
+                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                  </svg></span><span></span></label>
+              </td>
+              <td data-title="Código" class="codigo-item" scope="row"></td>
+              <td data-title="Imagen">
+                <div class="image-row-table">
+                  <img src="/img/placeholder-image.png" alt="">
+                </div>
+              </td>
+              <td data-title="Descripcion"></td>
+              <td data-title="Establecimiento"></td>
+              <td data-title="Categoria"></td>
+              <td data-title="Unidad de Medida"></td>
+              <td data-title="Cantidad"><input type="text" class="cantidad-prod"></td>
+              <td data-title="Precio"></td>
+              <td data-title="Total"></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="desc-calc-prices">
+      <div class="title-desc-calc">
+        Detalle de Precio
+      </div>
+      <div class="total-price">
+        <div class="indicator">
+          Total Final:
+        </div>
+        <div class="content">
+          0
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

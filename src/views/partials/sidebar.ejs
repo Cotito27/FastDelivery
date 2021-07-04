@@ -1,0 +1,356 @@
+<div class="block-container-body d-none">
+
+</div>
+<div class="sidebar show animate__animated animate__fadeIn">
+  <div class="sidebar-header">
+    <div class="title-section">Tablero</div>
+  </div>
+  <div class="separate-guide"></div>
+  <div class="sidebar-body">
+    <div class="section-content">
+      <div class="section-tab">
+        <a href="/" class="item-section">
+          <div class="section-info">
+            <div class="icon">
+              <i class="fas fa-home" aria-hidden="true"></i>
+            </div>
+            <div class="name-item">Inicio</div>
+          </div>
+          <div class="extend-info">
+            <div class="icon-extend">
+              <i class="fas fa-caret-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+        <div class="section-tab">
+          <a class="item-section btn-extend-section<%= section.includes('clientes') ? ' selected-section' : '' %>">
+            <div class="section-info">
+              <div class="icon">
+                <i class="fas fa-user-friends" aria-hidden="true"></i>
+              </div>
+              <div class="name-item">Clientes</div>
+            </div>
+            <div class="extend-info">
+              <div class="icon-extend">
+                <i class="fas fa-caret-down" aria-hidden="true"></i>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-extend<%= section.includes('clientes') ? ' show' : '' %>">
+            <!-- <a href="/clientes/registro" class="item-section<%= section == 'clientes/registro' ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="far fa-address-card" aria-hidden="true"></i>
+                </div>
+                <div class="name-item">Gestión</div>
+              </div>
+            </a> -->
+            <a href="/clientes/reporte" class="item-section<%= section == 'clientes/reporte' ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-cubes" aria-hidden="true"></i>
+                </div>
+                <div class="name-item">Reporte</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <% if(user.cargo == 1) { %>
+          <div class="section-tab">
+            <a class="item-section btn-extend-section<%= section.includes('empleados') ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-user-tie" aria-hidden="true"></i>
+                </div>
+                <div class="name-item">Trabajadores</div>
+              </div>
+              <div class="extend-info">
+                <div class="icon-extend">
+                  <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-extend<%= section.includes('empleados') ? ' show' : '' %>">
+              <a href="/empleados/registro" class="item-section<%= section == 'empleados/registro' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="far fa-address-card" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Registro</div>
+                </div>
+              </a>
+              <a href="/empleados/reporte" class="item-section<%= section == 'empleados/reporte' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Reporte</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="section-tab">
+            <a class="item-section btn-extend-section<%= section.includes('cargo') ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-suitcase-rolling"></i>
+                </div>
+                <div class="name-item">Cargos</div>
+              </div>
+              <div class="extend-info">
+                <div class="icon-extend">
+                  <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-extend<%= section.includes('cargo') ? ' show' : '' %>">
+              <a href="/cargo/registro" class="item-section<%= section == 'cargo/registro' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="far fa-address-card" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Registro</div>
+                </div>
+              </a>
+              <a href="/cargo/reporte" class="item-section<%= section == 'cargo/reporte' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Reporte</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="section-tab">
+            <a class="item-section btn-extend-section<%= section.includes('estado_cliente') ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-users-cog"></i>
+                </div>
+                <div class="name-item">Estado Cliente</div>
+              </div>
+              <div class="extend-info">
+                <div class="icon-extend">
+                  <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-extend<%= section.includes('estado_cliente') ? ' show' : '' %>">
+              <a href="/estado_cliente/registro" class="item-section<%= section == 'estado_cliente/registro' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="far fa-address-card" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Registro</div>
+                </div>
+              </a>
+              <a href="/estado_cliente/reporte" class="item-section<%= section == 'estado_cliente/reporte' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Reporte</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="section-tab">
+            <a class="item-section btn-extend-section<%= section.includes('estado_empleado') ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-users-cog"></i>
+                </div>
+                <div class="name-item">Estado Trabajador</div>
+              </div>
+              <div class="extend-info">
+                <div class="icon-extend">
+                  <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-extend<%= section.includes('estado_empleado') ? ' show' : '' %>">
+              <a href="/estado_empleado/registro" class="item-section<%= section == 'estado_empleado/registro' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="far fa-address-card" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Registro</div>
+                </div>
+              </a>
+              <a href="/estado_empleado/reporte" class="item-section<%= section == 'estado_empleado/reporte' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Reporte</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% } %>
+        <div class="section-tab">
+          <a class="item-section btn-extend-section<%= section.includes('productos') ? ' selected-section' : '' %>">
+            <div class="section-info">
+              <div class="icon">
+                <i class="fas fa-dolly-flatbed" aria-hidden="true"></i>
+              </div>
+              <div class="name-item">Productos</div>
+            </div>
+            <div class="extend-info">
+              <div class="icon-extend">
+                <i class="fas fa-caret-down" aria-hidden="true"></i>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-extend<%= section.includes('productos') ? ' show' : '' %>">
+            <% if(user.cargo == 1 || user.cargo == 2) { %>
+              <a href="/productos/registro" class="item-section<%= section == 'productos/registro' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="far fa-address-card" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Registro</div>
+                </div>
+              </a>
+            <% } %>
+            <a href="/productos/reporte" class="item-section<%= section == 'productos/reporte' ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-cubes" aria-hidden="true"></i>
+                </div>
+                <div class="name-item">Reporte</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <% if(user.cargo == 1) { %>
+          <div class="section-tab">
+            <a class="item-section btn-extend-section<%= section.includes('categoria') ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-shopping-basket"></i>
+                </div>
+                <div class="name-item">Categorias</div>
+              </div>
+              <div class="extend-info">
+                <div class="icon-extend">
+                  <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-extend<%= section.includes('categoria') ? ' show' : '' %>">
+              <a href="/categoria/registro" class="item-section<%= section == 'categoria/registro' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="far fa-address-card" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Registro</div>
+                </div>
+              </a>
+              <a href="/categoria/reporte" class="item-section<%= section == 'categoria/reporte' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Reporte</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="section-tab">
+            <a class="item-section btn-extend-section<%= section.includes('establecimiento') ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-dumpster"></i>
+                </div>
+                <div class="name-item">Establecimientos</div>
+              </div>
+              <div class="extend-info">
+                <div class="icon-extend">
+                  <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-extend<%= section.includes('establecimiento') ? ' show' : '' %>">
+              <a href="/establecimiento/registro" class="item-section<%= section == 'establecimiento/registro' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="far fa-address-card" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Registro</div>
+                </div>
+              </a>
+              <a href="/establecimiento/reporte" class="item-section<%= section == 'establecimiento/reporte' ? ' selected-section' : '' %>">
+                <div class="section-info">
+                  <div class="icon">
+                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                  </div>
+                  <div class="name-item">Reporte</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% } %>
+        <div class="section-tab">
+          <a class="item-section btn-extend-section<%= section.includes('boleta') ? ' selected-section' : '' %>">
+            <div class="section-info">
+              <div class="icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="name-item">Cotizaciones</div>
+            </div>
+            <div class="extend-info">
+              <div class="icon-extend">
+                <i class="fas fa-caret-down" aria-hidden="true"></i>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-extend<%= section.includes('boleta') ? ' show' : '' %>">
+            <a href="/boleta" class="item-section<%= section == 'boleta/registro' ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="far fa-address-card" aria-hidden="true"></i>
+                </div>
+                <div class="name-item">Boleta</div>
+              </div>
+            </a>
+            <a href="/boleta/reporte" class="item-section<%= section == 'boleta/reporte' ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="fas fa-cubes" aria-hidden="true"></i>
+                </div>
+                <div class="name-item">Reporte</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="section-tab">
+          <a class="item-section btn-extend-section<%= section.includes('ticket') ? ' selected-section' : '' %>">
+            <div class="section-info">
+              <div class="icon">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="name-item">Tickets</div>
+            </div>
+            <div class="extend-info">
+              <div class="icon-extend">
+                <i class="fas fa-caret-down" aria-hidden="true"></i>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-extend<%= section.includes('ticket') ? ' show' : '' %>">
+            <a href="/ticket" class="item-section<%= section == 'ticket/reporte' ? ' selected-section' : '' %>">
+              <div class="section-info">
+                <div class="icon">
+                  <i class="far fa-address-card" aria-hidden="true"></i>
+                </div>
+                <div class="name-item">Pendientes</div>
+              </div>
+            </a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

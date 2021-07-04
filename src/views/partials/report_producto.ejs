@@ -1,0 +1,76 @@
+<div class="form-table">
+  
+  <div class="title-form">Reporte de Productos</div>
+  <div class="form-search form-details">
+    <div class="input-box search-box">
+      <span class="details">Buscar</span>
+      <input type="text" class="input-search-table" placeholder="Busque algun producto" required>
+    </div>
+  </div>
+  <div class="buttons-actions-table">
+    <% if(user.cargo == 1 || user.cargo == 2) { %>
+    <div class="btn-actions btn-edit">
+      Editar
+    </div>
+    <% } %>
+    <a href="/<%= section %>" class="btn-actions btn-refresh">
+      Actualizar
+    </a>
+    <% if(user.cargo == 1 || user.cargo == 2) { %>
+    <a href="/<%= section.split('/')[0] %>/registro" class="btn-actions btn-new-save">
+      Registrar Nuevo
+    </a>
+    <% } %>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped tb-products">
+      <thead>
+        <tr>
+          <th scope="col">
+            SEL.
+          </th>
+          <th scope="col">Código</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Establecimiento</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Unidad de Medida</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((item, i) => { %>
+          <tr>
+            <td data-title="Seleccionar">
+              <input class="inp-cbx" id="cbx<%= i + 2 %>" type="checkbox" style="display: none">
+              <label class="cbx" for="cbx<%= i + 2 %>"><span>
+                <svg width="12px" height="10px" viewBox="0 0 12 10">
+                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </svg></span><span></span></label>
+            </td>
+            <td data-title="Código" class="codigo-item" scope="row"><%= item.codigo %></td>
+            <td data-title="Imagen">
+              <div class="image-row-table">
+                <% item.imagen == "null" || item.imagen == "" ? item.imagen = null : item.imagen %>
+                <img src="<%= item.imagen || '/img/placeholder-image.png' %>" alt="">
+              </div>
+            </td>
+            <td data-title="Nombre"><%= item.nombre %></td>
+            <td data-title="Descripcion"><%= item.descripcion %></td>
+            <td data-title="Establecimiento"><%= item.establecimiento %></td>
+            <td data-title="Categoria"><%= item.categoria %></td>
+            <td data-title="Precio"><%= item.precio %></td>
+            <td data-title="Stock"><%= item.stock %></td>
+            
+            <td data-title="Unidad de Medida"><%= item.unidad_med %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination-table">
+    <div id="index_native" class="actions-paginator-table"></div>
+  </div>
+</div>
